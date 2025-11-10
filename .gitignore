@@ -7,7 +7,7 @@
 # SSH keys
 *.pem
 *.key
-
+sensitive-info
 # Logs and temp files
 *.log
 *.bak
