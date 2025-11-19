@@ -247,6 +247,20 @@ resource "aws_instance" "my-ec2" {
   }
 }
 
+# STEP: Manage Elastic IP (Terraform will own the EIP)
+resource "aws_eip" "jenkins_eip" {
+  vpc = true
+
+  tags = {
+    Name = "elasticip_jenkins"
+  }
+}
+
+resource "aws_eip_association" "jenkins_eip_assoc" {
+  allocation_id = aws_eip.jenkins_eip.id
+  instance_id   = aws_instance.my_ec2.id
+}
+
 # STEP3: GET EC2 USER NAME AND PUBLIC IP 
 output "SERVER-SSH-ACCESS" {
   value = "ubuntu@${aws_instance.my-ec2.public_ip}"
