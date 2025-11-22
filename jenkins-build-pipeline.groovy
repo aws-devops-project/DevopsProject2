@@ -91,7 +91,6 @@ pipeline {
                     docker rmi ${params.AWS_ACCOUNT_ID}.dkr.ecr.eu-west-2.amazonaws.com/${params.ECR_REPO_NAME}:${BUILD_NUMBER}
                     docker rmi ${params.AWS_ACCOUNT_ID}.dkr.ecr.eu-west-2.amazonaws.com/${params.ECR_REPO_NAME}:latest
                    """
- 
                 }
             }
         } 
